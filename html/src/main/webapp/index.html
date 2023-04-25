@@ -1,16 +1,60 @@
 <!DOCTYPE html>
+<!-- DTD(Document Type Definition) : 문서 타입 정의 -->
 <html>
+<!-- 시작 태그(starting tag) -->
 <head>
-<meta charset="EUC-KR">
+<!-- HTML의 여러가지 설정들 -->
+<meta charset="UTF-8" />
+<!-- 시작태그와 종료태그 사이에 컨텐트가 없을 때 -->
 <title>HTML</title>
 </head>
 <body>
+    <!-- 브라우저 화면에서 보여지는 내용들 -->
+    <!--  HTML(Hyper-Text MarkUp Language -->
+    <!-- HTML 문법 :
+    <tag attribute="value1" '속성과 속성 사이는 공백으로 구분' attribute="value2" ...> content </tag>
+    HTML 요소(element) - HTML tag
+    - block 요소 : 자동으로 줄바꿈되는 요소. 다음 요소는 이전 요소 아래 배치
+    (예) h1,h2,h3..., div, form, ul, ...
+    - inline 요소 : 자동으로 줄바꿈 되지 않는 요소. 이전 요소 오른쪽에 배치
+    
+    (예) a, img, span, ... 
+    -->
+    <h1>첫번째 HTML 파일</h1>
+    <h2>Hello</h2>
 
-<h1>ù��° HTML ����</h1>
+    <div class="ricetasty">밥맛</div>
+    <div class="ricetasty">밥맛</div>
+    <div class="ricetasty">밥맛</div>
+    <div class="ricetasty">밥맛</div>
 
-<span>���</span>
-<span>����</span>
-<a href = "https://github.com/kim-dahun/Java_project_GroupWare/tree/main/Java_Project_Mini/src/com/sangsang/menu/view">����� ����긵ũ</a>
+    <span class="ricetasty">밥맛</span>
+    <span id="nothing">없다</span>
+    <a
+        href="https://github.com/kim-dahun/Java_project_GroupWare/tree/main/Java_Project_Mini/src/com/sangsang/menu/view">김다훈
+        깃허브링크</a>
+    <a href="https://www.daum.net/"><button>다음으로 바로가기</button> <!-- anchor: 링크 -->
+    </a>
+    <br />
+    <!-- line break : 줄바꿈 -->
+    <a href="https://www.naver.com/"><button>네이버로 바로가기</button></a>
+
+    <ul>
+        <li>
+            <a href = "Section.html">Section Tag</a>
+        </li>
+        <li>
+            <a href="image.html">Image</a>
+        </li>
+        <li>
+            <a href="list.html">List</a>
+        </li>
+        <li>
+            <a href="table.html">Table</a>
+        </li>
+
+    </ul>
 
 </body>
 </html>
+<!-- 종료 태그(end tag) -->
