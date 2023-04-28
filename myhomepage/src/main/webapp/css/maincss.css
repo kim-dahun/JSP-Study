@@ -1,0 +1,392 @@
+@charset "UTF-8";
+@import url('https://fonts.googleapis.com/css2?family=Song+Myung&display=swap');
+
+
+body{
+    
+    background-color: rgb(240, 240, 240);
+    
+}
+
+#sidebar{
+    
+    background-color: MediumSeaGreen;
+    padding : 10px;
+    height:200%;
+    width:550px;
+    position: fixed;
+    z-index: 9999;
+    
+    
+    
+}
+
+#mainbar{
+    
+    background-color: rgb(240, 240, 240)
+;
+    
+}
+
+@keyframes myAnimation {
+  0% { opacity: 0; }
+  50% { opacity: 0.5; }
+  100% { opacity: 1; }
+}
+
+h1{
+    animation: myAnimation 2s ease-in-out infinite;
+    margin-top:100px;
+    margin-left:680px;
+    font-weight:bold;
+    text-align:center;
+    position: absolute;
+    display: block;
+    background-color: rgb(240, 240, 240);
+    
+}
+
+#sidebar .MessagesTitle {
+    margin-top: 480px;
+    margin-left:195px;
+    font-size: 1.2cm;
+    font-weight: bold;
+    text-align: center;
+    display:blcok;
+    position: fixed;
+    color: white;
+}
+
+#sidebar .MessagesContent{
+    padding: 10px;
+    font-size: 0.5cm;
+    text-align: center;
+    position: fixed;
+    margin-left:15px;
+    margin-top:540px;
+    color: white;
+}
+
+.btnMenu{
+    border-style:2px solid black;
+    width: 150px;
+    height: 65px;
+    font-weight: bold;
+    background-color: BurlyWood;
+    border-radius: 1cm;
+    color: white;
+    
+    
+}
+
+#sidebar .select>a:nth-child(1) {
+    margin-top:600px;
+    position: fixed;
+    margin-left:5px;
+    align-content: space-between;
+    
+    
+}
+
+#sidebar .select>a:nth-child(2) {
+    margin-top:600px;
+    margin-left:190px;
+    position: fixed;
+    align-content: space-between;
+    
+}
+
+#sidebar .select>a:nth-child(3) {
+    margin-top:600px;
+    margin-left:375px;
+    position: fixed;
+    align-content: space-between;
+    
+}
+
+
+
+#sidebar>img{
+    
+    position: fixed;
+    margin-top: 50px;
+    width:380px;
+    border-radius: 5cm;
+    margin-left:70px;
+    
+}
+
+
+.SubImage:first-child{
+    
+    margin-top: 600px;
+    
+}
+
+.MainImage{
+    
+    position:absolute;
+    display: block;
+    margin-top: 720px;
+    width: 600px;
+    height: 400px;
+}
+
+.SubImage{
+    position:absolute;
+    margin-top:1150px;  
+    
+}
+
+
+
+
+
+.Images{
+    
+    margin-left:550px;
+    
+}
+
+.Images .SubImage:nth-child(2){
+   margin-top:720px; 
+   margin-left: 620px;
+   height: 400px; 
+   width: 400px;
+}
+
+.Images .SubImage:nth-child(3){
+   margin-top:720px; 
+   margin-left: 1050px;
+    height: 400px; 
+    width: 400px;
+}
+
+.Images .SubImage:nth-child(4){
+   margin-top:720px; 
+   margin-left: 1470px;
+   height: 400px; 
+    width: 400px;
+}
+
+
+@keyframes slideBack {
+  from {
+    transform: translateX(-600px);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+#mainbar>.MessagesTitle:hover{
+    animation: slideBack 1s forwards;
+    
+    
+    
+}
+
+
+#mainbar>.MessagesTitle {
+    background-color:white;
+    font-size: xx-large;
+    position: absolute;
+    margin-top:1000px;
+    margin-left: 1000px;
+    font-weight: bold;
+    
+    
+}
+
+#mainbar>.MessagesContent{
+    margin-top:1000px;
+    background-color:white;
+    position: absolute;
+    display:block;
+    margin-left:1000px;
+    
+}
+
+#mainbar .MessagesTitle:nth-child(2) {
+    margin-left:560px;
+    width:100%;
+    margin-top: 200px;
+    font-size: 40pt;
+    font-family: 'Song Myung', serif;
+    
+    
+}
+
+#mainbar .MessagesContent:nth-child(3) {
+    margin-left:560px;
+    margin-top: 300px;
+    width:100%;
+    font-size: 25pt;
+    font-family: 'Song Myung', serif;
+    text-align: justify;
+}
+
+#mainbar .MessagesTitle:nth-child(4) {
+    margin-left:560px;
+    width:100%;
+    margin-top: 620px;
+    font-size: 40pt;
+    font-family: 'Song Myung', serif;
+    
+    
+}
+
+.MessagesTitle2:hover ,.MessagesTitle3:hover{
+    
+     animation: slideBack 1s forwards;
+    
+}
+
+.MessagesTitle2 {
+    
+    display:inline-block;
+    position:absolute;
+    margin-top: 1150px;
+    left: 560px;
+    font-weight: bold;
+    background-color:white;
+    font-size: xx-large;
+    font-size: 40pt;
+    width:100%;
+    font-family: 'Song Myung', serif;
+    
+}
+
+.MessagesParagraph{
+    
+    font-family: 'Song Myung', serif;
+    font-size: 15pt;
+    
+}
+
+
+
+.MessagesParagraph:nth-child(1){
+    margin-top:1250px;
+    margin-left: 560px;
+    position: absolute;
+    font-weight: bold;
+    width: 100%;
+    background-color: white;
+    
+}
+
+.MessagesParagraph:nth-child(2){
+    margin-top:1285px;
+    margin-left: 560px;
+    position: absolute;
+    font-weight: bold;
+    width: 100%;
+    background-color: white;
+    
+}
+
+.MessagesParagraph:nth-child(3){
+    margin-top:1320px;
+    margin-left: 560px;
+    position: absolute;
+    font-weight: bold;
+    width: 100%;
+    background-color: white;
+    
+}
+
+.MessagesParagraph:nth-child(4){
+    margin-top:1355px;
+    margin-left: 560px;
+    position: absolute;
+    font-weight: bold;
+    width: 100%;
+    background-color: white;
+    
+}
+
+.MessagesParagraph:nth-child(5){
+    margin-top:1390px;
+    margin-left: 560px;
+    position: absolute;
+    font-weight: bold;
+    width: 100%;
+    background-color: white;
+    
+}
+
+.MessagesParagraph:nth-child(6){
+    margin-top:1425px;
+    margin-left: 560px;
+    position: absolute;
+    font-weight: bold;
+    width: 100%;
+    background-color: white;
+    
+}
+
+.MessagesParagraph:nth-child(7){
+    margin-top:1460px;
+    margin-left: 560px;
+    position: absolute;
+    font-weight: bold;
+    width: 100%;
+    background-color: white;
+    
+}
+
+.MessagesParagraph:nth-child(8){
+    margin-top:1495px;
+    margin-left: 560px;
+    position: absolute;
+    font-weight: bold;
+    width: 100%;
+    background-color: white;
+    
+}
+
+.MessagesParagraph:nth-child(9){
+    margin-top:1530px;
+    margin-left: 560px;
+    position: absolute;
+    font-weight: bold;
+    width: 100%;
+    background-color: white;
+    
+}
+
+.MessagesParagraph:nth-child(10){
+    margin-top:1565px;
+    margin-left: 560px;
+    position: absolute;
+    font-weight: bold;
+    width: 100%;
+    background-color: white;
+    
+}
+
+#mainbar .MessagesTitle3 {
+    font-family: 'Song Myung', serif;
+    
+    margin-top:1620px;
+    background-color: white;
+    font-size: 40pt;
+    position: absolute;
+    
+    margin-left: 560px;
+    font-weight: bold;
+    width: 100%;
+}
+
+#mainbar .MessagesContent3 {
+    
+    font-family: 'Song Myung', serif;
+    font-size:25px;
+    margin-top: 1710px;
+    background-color: white;
+    position: absolute;
+    display: block;
+    margin-left: 560px;
+    width: 100%;
+}

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>JavaScript 4</title>
+	</head>
+	<body>
+		<h1>JavaScript for 반복문</h1>
+        <input type="number" id="inputnumber" placeholder="몇 단 실행?"/>
+        <button onclick ="go()">실행</button>
+        <div id="result"></div>
+        <div id = "result2"></div>
+        <div id = "result3"></div>
+        
+        <script>
+        // div#result 인 element를 찾음.
+        const result = document.getElementById('result');
+        const inputnumbertag = document.getElementById('inputnumber');
+        // div 내에 문자를 넣어주도록 구구단 출력 결과 문자열 변수
+        let html = ''; 
+        
+        function go(){
+        	
+        	const inputnumber = parseInt(inputnumbertag.value);
+        	
+        	for(let n = 1; n<10 ; n++){
+        		
+        		// 문자열 템플릿: `문자열 || ${변수/식}` 
+        		html += `${inputnumber} x ${n} = ${inputnumber * n} <br />`;
+        		
+        	}
+        	
+        	
+        	result.innerHTML = html;
+        	result.innerHTML += '<hr />'; // result.innerHTML = result.innerHTML + '<hr />'
+        	html = "";
+        	
+        	
+        	
+        	result2.innerHTML = html2;
+        	
+        	
+        		
+        }
+     // 구구단 2단 ~ 9단까지를 이어서 출력.
+        let html2 = '';
+        const result2 = document.getElementById('result2');
+        for(let n = 2; n<10 ; n++){
+            
+            for(let m = 1; m<10 ; m++){
+                
+                html2 += `${n} x ${m} = ${n*m} <br />`;
+                
+            }
+            html2 += '<hr />';
+        }
+        
+        result2.innerHTML = html2;
+        
+        // 구구단 2단은 2*2 까지, 3단은 3*3까지 9단은 9*9까지 이어서 출력.
+        let result3 = document.getElementById('result3');
+        let html3 = '';
+            
+            
+        for(let n = 2; n<10 ; n++){
+            
+            for(let m = 1; m<=n ; m++){
+                
+                html3 += `${n} x ${m} = ${n*m} <br />`;
+                
+                
+            }
+            html3 += '<hr />';
+        }
+            result3.innerHTML = html3;
+        </script>
+        
+	</body>
+</html>
