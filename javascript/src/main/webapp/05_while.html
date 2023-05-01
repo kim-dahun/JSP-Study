@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Insert title here</title>
+	</head>
+	<body>
+		<h1>while 반복문</h1>
+        
+        <div id ="result"></div>
+        
+        <script>
+        // 1. 구구단 2단을 while문 사용해서 표현
+        
+            const result = document.getElementById('result');
+            let n = 1;
+            let html = '';
+            while(n<10){
+            	
+            	html += `2 x ${n} = ${2*n}<br />`;
+            	n++;
+            	
+            }
+        
+            html = html + '<hr />';
+            result.innerHTML = html;
+        // 2. 구구단 2단 - 9단까지 while문을 사용해서 표현
+        
+            n = 2;
+            
+            while(n<10){
+            	let m = 1;
+            	while(m<10){
+            		
+            		html += `${n} x ${m} = ${m*n}<br />`;
+            		
+            		m++;
+            		
+            	}
+            	n++;
+            	html += '<hr />';
+            	
+            }
+            result.innerHTML  = html;
+        
+        // do- while 반복문
+        m = 1;
+        html = '<ul>';
+        
+        
+        do{
+            	
+        	html += `<li>JavaScript ${m}</li?>`;
+        	    m++;	
+        } while(m<=9);
+        html +='<ul>';    
+        
+        result.innerHTML += html;
+        
+        </script>
+	</body>
+</html>
