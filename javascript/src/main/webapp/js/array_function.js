@@ -55,8 +55,8 @@
      });
      
      
-     let squares = numbers.map((x)=>x ** 2);
-     console.log(squares);
+    // let squares = numbers.map((x)=>x ** 2);
+     //console.log(squares);
      
      
      // 3. 배열 numbers의 원소들 중에서 홀수의 제곱을 원소로 갖는 배열을 만들고 출력. 
@@ -75,8 +75,8 @@
          
      });
      
-     let squaresNum = numbers.filter((x)=>x%2).map((x)=>x**2);
-     console.log(squaresNum);
+     //let squaresNum = numbers.filter((x)=>x%2).map((x)=>x**2);
+    // console.log(squaresNum);
      
      
      // 배열 concat() : 배열에 새로운 원소를 끝에 추가. 원소가 추가된 새로운 배열을 리턴.
