@@ -14,7 +14,7 @@ public class BackJoons {
         String line = br.readLine();
         String[] b = new String[Integer.parseInt(line)];
         
-        
+        line.toUpperCase();
         
         
         for(int i = 0; i<b.length; i++) {
