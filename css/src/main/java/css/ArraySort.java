@@ -2,6 +2,7 @@ package css;
 
 import java.util.Arrays;
 import java.util.Comparator;
+import java.util.LinkedList;
 
 public class ArraySort {
 
@@ -12,8 +13,18 @@ public class ArraySort {
         int[] B = {4, 4, 5};
         
         
+        LinkedList<String> list = new LinkedList<>();
+        list.remove();
         
+        System.out.println((int)'a');
+        System.out.println((int)'z');
+        char a = (char) 97;
+        System.out.println(a);
+
+        String al = a + "";
+        String bl = a + "";
         
+        System.out.println(al+bl);
         
     }
 
