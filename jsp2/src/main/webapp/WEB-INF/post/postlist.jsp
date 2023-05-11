@@ -24,5 +24,34 @@
             </li>
         </ul>
     </nav>
+    <main>
+    <table style="font-size: xx-large; border: 1px solid black; border-collapse: collapse;">
+        <thead>
+            <tr>
+            <th>글 번호</th>
+            <th>제목</th>
+            <th>작성자</th>
+            <th>최종수정시간</th>
+            </tr>
+        </thead>
+        <tbody>
+        <c:forEach items="${postlist}" var="post">
+            <tr>
+            <td style="text-align:center; font-size: xx-large; border: 1px solid black; border-collapse: collapse;">${post.id}</td>
+            <td style="font-size: xx-large; border: 1px solid black; border-collapse: collapse;">
+            <c:url var="postDetail" value="/post/detail">
+                <c:param name="id" value="${post.id }"></c:param>
+            </c:url>
+            <a href="${postDetail}">${post.title}</a>
+            
+            </td>
+            <td style="font-size: xx-large; border: 1px solid black; border-collapse: collapse;">${post.author}</td>
+            <td style="font-size: xx-large; border: 1px solid black; border-collapse: collapse;">${post.modifiedTime}</td>
+            </tr>
+        </c:forEach>
+        </tbody>
+    </table>
+    </main>
+     
 </body>
 </html>
