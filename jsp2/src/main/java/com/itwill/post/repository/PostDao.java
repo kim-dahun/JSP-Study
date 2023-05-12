@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Timestamp;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
@@ -144,7 +145,7 @@ public class PostDao {
     }
     private static final String SQL_READ_ONE = "SELECT * FROM POST WHERE id = ?";
     
-    public Post read(int id) {
+    public Post read(long id) {
         // TODO Auto-generated method stub
         Connection conn = null;
         PreparedStatement stmt = null;
@@ -179,6 +180,178 @@ public class PostDao {
         }
         log.info(post.toString());
         return post;
+    }
+
+    private static final String SQL_DELETE = "DELETE FROM POST WHERE id = ?"; 
+    
+    public int delete(Long id) {
+        // TODO Auto-generated method stub
+        Connection conn = null;
+        PreparedStatement stmt = null;
+        int result = 0;
+        try {
+            conn = ds.getConnection();
+            log.info("ds = {ds}",ds);
+            stmt = conn.prepareStatement(SQL_DELETE);
+            stmt.setLong(1, id);
+            
+            result = stmt.executeUpdate();
+            
+        } catch (SQLException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        } finally {
+            
+            try {
+                stmt.close();
+                conn.close();
+            } catch (SQLException e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+            }
+            
+        }
+        
+        return result;
+    }
+
+    private static final String SQL_UPDATE = "UPDATE POST SET title = ?, content = ?, modified_time=sysdate WHERE id = ?"; 
+    
+    public int update(Post post) {
+        // TODO Auto-generated method stub
+        Connection conn = null;
+        PreparedStatement stmt = null;
+        int result = 0;
+        try {
+            conn = ds.getConnection();
+            stmt = conn.prepareStatement(SQL_UPDATE);
+            stmt.setString(1, post.getTitle());
+            stmt.setString(2, post.getContent());
+            
+            stmt.setLong(3, post.getId());
+            result = stmt.executeUpdate();
+            log.info("업데이트한 행의 갯수 = {}",result);
+        } catch (SQLException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        } finally {
+            
+            try {
+                stmt.close();
+                conn.close();
+            } catch (SQLException e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+            }
+            
+        }
+        
+        return result;
+    }
+
+    
+    public List<Post> read(String category, String word) {
+        // TODO Auto-generated method stub
+        list = new ArrayList<>();
+        
+        switch(category){
+        case "t":
+            list = search(word,1);
+            break;
+        case "c":
+            list = search(word,2);
+            break;
+        
+        case "a":
+            list = search(word,3);
+            break;
+        case "tc":
+            list = search(word,4);
+            break;
+            
+        }
+        
+        return list;
+    }
+
+    //Content로 찾는 SQL
+    private static final String SQL_READ_BY_CONTENT = "SELECT * FROM POST WHERE LOWER(content) LIKE LOWER(?) ORDER BY ID DESC";
+    // title로 찾는 SQL
+    private static final String SQL_READ_BY_TITLE = "SELECT * FROM POST WHERE LOWER(title) LIKE LOWER(?) ORDER BY ID DESC";
+    // title or Content SQL
+    private static final String SQL_READ_BY_TITLEORCONTENT = "SELECT * FROM POST WHERE LOWER(title) LIKE LOWER(?) OR LOWER(content) LIKE LOWER(?) ORDER BY ID DESC";
+    // Author로 찾는 SQL
+    private static final String SQL_READ_BY_AUTHOR = "SELECT * FROM POST WHERE LOWER(author) LIKE LOWER(?) ORDER BY ID DESC";
+    
+    //SQL 고르기
+    public String searchSQL(int caseNum) {
+        String answer = "";
+        switch(caseNum){
+        case 1:
+            answer = SQL_READ_BY_TITLE;
+            break;
+        case 2:
+            answer = SQL_READ_BY_CONTENT;
+            break;
+        case 3:
+            answer = SQL_READ_BY_AUTHOR;
+            break;
+        case 4:
+            answer = SQL_READ_BY_TITLEORCONTENT;
+            break;
+        
+            
+        }
+        log.info("selectSQL = {}",answer);
+        return answer;
+    }
+    
+    private List<Post> search(String word, int caseNum) {
+        // TODO Auto-generated method stub
+        String keyword = "%" + word + "%";
+        log.info("keyword = {}",keyword);
+        Connection conn = null;
+        PreparedStatement stmt = null;
+        ResultSet rs = null;
+        
+        try {
+            conn = ds.getConnection();
+            stmt = conn.prepareStatement(searchSQL(caseNum));
+            stmt.setString(1, keyword);
+            if(caseNum<=3) {
+                
+            } else {
+                stmt.setString(2, keyword);
+            }
+            rs = stmt.executeQuery();
+            while(rs.next()) {
+                
+                Post post = recordToPost(rs);
+                
+                list.add(post);
+                
+                
+            }
+            log.info("{}",list);
+        } catch (Exception e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        } finally {
+            
+            try {
+                rs.close();
+                stmt.close();
+                conn.close();
+            } catch (SQLException e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+            }
+            
+        }
+               
+        
+        
+        return list;
     }
     
 

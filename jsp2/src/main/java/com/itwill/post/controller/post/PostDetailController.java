@@ -16,7 +16,7 @@ import com.itwill.post.service.PostService;
 /**
  * Servlet implementation class PostDetail
  */
-@WebServlet(name="detail", urlPatterns = "/post/detail")
+@WebServlet(name="detail", urlPatterns = {"/post/detail"})
 public class PostDetailController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
     private final Logger log = LoggerFactory.getLogger(PostDetailController.class);   
@@ -33,7 +33,7 @@ public class PostDetailController extends HttpServlet {
 		// TODO Auto-generated method stub
 	    log.info("doget()");
 	    
-	    int id = Integer.parseInt(request.getParameter("id"));
+	    Long id = Long.parseLong((request.getParameter("id")));
 	    
 		Post post = postService.read(id);
 		

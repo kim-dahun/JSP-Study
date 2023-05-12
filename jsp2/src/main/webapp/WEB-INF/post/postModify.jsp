@@ -3,9 +3,9 @@
     <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
-	<head>
-		<meta charset="UTF-8">
-		<title>JSP</title>
+    <head>
+        <meta charset="UTF-8">
+        <title>JSP</title>
         <style>
             main{
                 border: 1px solid black;
@@ -33,48 +33,46 @@
             
             }
         </style>
-	</head>
-	<body>
+    </head>
+    <body>
         <header>
-            <h1> 상세 보기 페이지 </h1>
+            <h1> 포스트 수정 페이지 </h1>
         </header>
         <nav>
             <c:url var="postlist" value="/post"></c:url>
         
             <c:url var="mainpage" value="/"></c:url>
-            <c:url var="postModify" value="/post/modify">
+            <c:url var="postdetail" value="/post/detail">
                 <c:param name="id" value="${post.id }" />
             </c:url>
             <ul>
                 <li><a href= "${mainpage }">메인 메뉴</a></li>
                 <li><a href="${postlist}">포스트 목록</a></li>
                
-                <li><a href="${postModify }">포스트 수정</a></li>
+                <li><a href="${postdetail }">상세 보기</a></li>
             </ul>
         </nav>
-		<main>
-            <form>
-            <div><input type="text" value="${post.id}" readonly="readonly"/></div>
-            <div><input type="text" value="${post.title}" readonly="readonly"/></div>
+        <main>
+            <form id="postModifyForm" >
+            <div><input id = "id" type="text" value="${post.id}" readonly="readonly" name="id"/></div>
+            <div><input id = "title" type="text" value="${post.title}" autofocus="autofocus" name="title"/></div>
             <hr />
             <div>
-               <textarea rows="5" cols="70" readonly="readonly">${post.content }</textarea>
+               <textarea id="content" rows="5" cols="70" name="content" >${post.content }</textarea>
             </div>
             <hr />
             <div>
-                <input type="text" value = "${post.author}" readonly="readonly"/>
+                <input type="text" value = "${post.author}" readonly="readonly" />
             </div>
             <div>
-                <input type="text" value = "${post.createdTime }" readonly="readonly" />
-            </div>
-            <div>
-                <input type="text" value = "${post.modifiedTime}" readonly="readonly"/>
+                <button id = "btnUpdate" style="padding: 0px 15px;">수정</button>
+                <button id = "btnDelete" style="padding: 0px 15px;">삭제</button>
             </div>
             </form>
         </main>
         
-       
+        <script src="../js/postModify.js"></script>
             
         
-	</body>
+    </body>
 </html>

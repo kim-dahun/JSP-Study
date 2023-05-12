@@ -46,9 +46,30 @@ public class PostService {
         return postDao.write(post);
     }
 
-    public Post read(int id) {
-        log.info("read({})",id);
+    public Post read(long id) {
+        log.info("read(id = {})",id);
         // TODO Auto-generated method stub
         return postDao.read(id);
+    }
+
+    public int delete(Long id) {
+        // TODO Auto-generated method stub
+        log.info("delete(id={})",id);
+        
+        return postDao.delete(id);
+    }
+
+    public int update(Post post) {
+        // TODO Auto-generated method stub
+        log.info("update(post={})",post);
+        
+        return postDao.update(post);
+    }
+
+    public List<Post> read(String category, String word) {
+        // TODO Auto-generated method stub
+        log.info("read({})",category,word);
+        
+        return postDao.read(category, word);
     }
 }
