@@ -3,6 +3,7 @@ package css;
 import java.util.Arrays;
 import java.util.Comparator;
 import java.util.LinkedList;
+import java.util.Stack;
 
 public class ArraySort {
 
@@ -12,6 +13,10 @@ public class ArraySort {
         int[] A = {1, 4, 2};
         int[] B = {4, 4, 5};
         
+        Stack<Integer> stack = new Stack<>();
+        
+        stack.removeAllElements();
+        stack.empty()
         
         LinkedList<String> list = new LinkedList<>();
         list.remove();
