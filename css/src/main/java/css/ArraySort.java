@@ -16,10 +16,12 @@ public class ArraySort {
         Stack<Integer> stack = new Stack<>();
         
         stack.removeAllElements();
-        stack.empty()
         
-        LinkedList<String> list = new LinkedList<>();
-        list.remove();
+        char c = 'a'+1;
+        
+        System.out.println(c);
+        System.out.println((int)'z');
+        
         
         System.out.println((int)'a');
         System.out.println((int)'z');

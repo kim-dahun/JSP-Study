@@ -46,10 +46,26 @@
                 <c:param name="id" value="${post.id }" />
             </c:url>
             <ul>
+                <!-- 로그인한 username이 있는 경우 -->
+            <c:if test="${ not empty signedInUser }">
+                <li>
+                
+                    <span>${signedInUser}</span>
+                    <c:url var="signOut" value="/user/signout"></c:url>
+                    <a href="${signOut }">로그아웃</a>
+                </li>
+                
+            </c:if>
+            
+            
                 <li><a href= "${mainpage }">메인 메뉴</a></li>
                 <li><a href="${postlist}">포스트 목록</a></li>
-               
+                
+                <%-- 로그인 사용자 ID와 글 작성자 ID가 같은 경우에만 수정 메뉴 오픈 --%>
+               <c:if test="${signedInUser == post.author}">
                 <li><a href="${postModify }">포스트 수정</a></li>
+                
+                </c:if>
             </ul>
         </nav>
 		<main>

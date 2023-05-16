@@ -14,6 +14,16 @@
         
         <nav>
             <ul>
+            <!-- 로그인한 username이 있는 경우 -->
+            <c:if test="${ not empty signedInUser }">
+                <li>
+                
+                    <span>${signedInUser}</span>
+                    <c:url var="signOut" value="/user/signout"></c:url>
+                    <a href="${signOut }">로그아웃</a>
+                </li>
+                
+            </c:if>
                 <li>
                 <%-- <c:url>에서 "/" 요청주소는 context root 까지. --%>
                     <c:url value="/" var="mainpage"></c:url>
@@ -35,7 +45,8 @@
                         <textarea rows="5" cols="100" name="content" placeholder="내용 입력" required></textarea>
                     </div>
                     <div>
-                        <input type="text" name="author" placeholder="아이디 입력" required />
+                        <%-- 로그인한 사용자 아이디를 value로 설정 --%>
+                        <input type="hidden" name="author" value="${signedInUser }" readonly="readonly"/>
                         
                     </div>
                 <div>
