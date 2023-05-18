@@ -3,6 +3,7 @@ package css;
 import java.util.Arrays;
 import java.util.Comparator;
 import java.util.LinkedList;
+import java.util.List;
 import java.util.Stack;
 
 public class ArraySort {
@@ -22,7 +23,9 @@ public class ArraySort {
         System.out.println(c);
         System.out.println((int)'z');
         
+        LinkedList<Integer> list = new LinkedList<>();
         
+        list.getLast();
         System.out.println((int)'a');
         System.out.println((int)'z');
         char a = (char) 97;
