@@ -17,7 +17,9 @@
         <nav class="p-2 navbar-nav">
             <ul class="navbar-nav bg-light">
                 <li class="nav-item">
-                    <c:url var="postlist" value="/post/list"></c:url>
+                    <c:url var="postlist" value="/post/list">
+                        <c:param name="num" value="0"></c:param>
+                    </c:url>
                     <a class="nav-link" href="${ postlist }">포스트 목록</a>
                 </li>
             </ul>
