@@ -10,6 +10,7 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 
 import com.itwill.spring2.domain.Post;
+import com.itwill.spring2.dto.PostListDto;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -24,6 +25,18 @@ public class RepositoryTest {
     @Autowired
     private PostRepository postRepository;
     
+    @Test
+    public void testselectWithReplyCount() {
+        List<PostListDto> list = postRepository.selectWithReplyCount();
+        
+        for(PostListDto x : list) {
+            log.info(x.toString());
+        }
+        
+        
+    }
+    
+    
 //    @Test
     public void testDelteById() {
         
@@ -32,7 +45,7 @@ public class RepositoryTest {
         log.info("delete rowcount = {}",result);
     }
     
-    @Test
+//    @Test
     public void testUpdateTitleAndContent() {
         Post post = postRepository.selectById(41);
         Assertions.assertNotNull(post);

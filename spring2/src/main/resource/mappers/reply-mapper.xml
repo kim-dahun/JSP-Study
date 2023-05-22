@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.itwill.spring2.repository.ReplyRepository">
+    <select id="selectByPostId" resultType="com.itwill.spring2.domain.Reply">
+        select * from replies where post_id = #{post.id}
+    </select>
+    <insert id="insert">
+        INSERT INTO replies (post_id, reply_text, writer, created_time, modified_time) VALUES (#{post_id}, #{reply_text}, #{writer}, systimestamp, systimestamp)
+    </insert>
+    <update id="update">
+        UPDATE replies SET reply_text = #{reply_text}, modified_time = systimestamp WHERE id = #{id}
+    </update>
+    <delete id="delete">
+        DELETE FROM replies WHERE id = #{id}
+    </delete>
+    <select id="selectReplyCountWithPostId" resultType="java.lang.Long">
+        SELECT count(id) from replies WHERE post_id = #{post_id}
+    </select>
+</mapper>

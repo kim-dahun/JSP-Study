@@ -36,6 +36,7 @@ public class PostController {
         // Controller 는 Service 계층의 메서드를 호출해서 서비스 기능 수행.
         List<PostListDto> list = postService.read();
         
+        
         int length = list.size();
         int len = 0;
         if(num<0) {

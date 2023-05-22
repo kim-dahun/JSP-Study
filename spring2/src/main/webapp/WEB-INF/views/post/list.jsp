@@ -56,16 +56,19 @@
                     <c:set var="length2" value="${ length2 }" />
                     
                     
-                    <c:forEach items="${ postlist }" var="postlist" begin="${ count }" end="${ length }">
+                    <c:forEach items="${ postlist }" var="postlist" begin="${ count }" end="${ length-1 }">
                         <tr>
                             <td>${ postlist.id }</td>
                             <td>
                             <c:url var="postDetailPage" value="/post/details">
                                 <c:param name="id" value="${ postlist.id }" />
                             </c:url>
-                            <a href="${postDetailPage }">${ postlist.title }</a></td>
+                            <a href="${postDetailPage }">${ postlist.title }
+                            <span class="text-danger">[${ postlist.rcnt }]</span></a></td>
                             <td>${ postlist.author }</td>
-                            <td><fmt:formatDate value="${ postlist.createdTime }"
+                            <td>
+                            
+                            <fmt:formatDate value="${ postlist.created_time }"
                                 pattern="yyyy-MM-dd HH:mm"
                             
                             /></td>

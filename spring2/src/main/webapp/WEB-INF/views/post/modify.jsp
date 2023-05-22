@@ -46,7 +46,7 @@
                             </div>
                             <div class="my-2">
                                 <label class="form-label for="title">제목</label>
-                                <input class="form-control" name="title" id="title" value="${post.title }" />
+                                <input class="form-control" name="title" id="title" value="${post.title }" autofocus />
                                 
                             </div>
                             <div class="my-2">

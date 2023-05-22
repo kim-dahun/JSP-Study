@@ -11,6 +11,7 @@ import com.itwill.spring2.dto.PostDetailDto;
 import com.itwill.spring2.dto.PostListDto;
 import com.itwill.spring2.dto.PostUpdateDto;
 import com.itwill.spring2.repository.PostRepository;
+import com.itwill.spring2.repository.ReplyRepository;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -33,11 +34,13 @@ public class PostService {
     
     private final PostRepository postRepository; // 2. (1) 생성자에 의한 의존성 주입
     
+    
     // 포스트 목록 페이지
     public List<PostListDto> read(){
         log.info("read()");
         
-        List<Post> list= postRepository.selectOrderByIdDesc();
+        
+//        List<Post> list= postRepository.selectOrderByIdDesc();
         /*
          * List<PostListDto> result = new ArrayList<>();
          * for(Post p : list){
@@ -47,7 +50,7 @@ public class PostService {
          * 
          * return result;
          */
-        return list.stream().map(PostListDto::fromEntity).toList();
+        return postRepository.selectWithReplyCount();
     }
     
     // 포스트 상세보기 페이지

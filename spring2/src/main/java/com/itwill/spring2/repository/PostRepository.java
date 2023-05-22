@@ -3,6 +3,7 @@ package com.itwill.spring2.repository;
 import java.util.List;
 
 import com.itwill.spring2.domain.Post;
+import com.itwill.spring2.dto.PostListDto;
 
 // application-context.xml에서 scan 하는 패키지에 있기 때문에
 // 인터페이스를 구현하는 클래스가 MyBatis에 의해 자동으로 만들어짐.
@@ -19,4 +20,6 @@ public interface PostRepository {
     public int updateTitleAndContent(Post post);
  
     public int deleteById(long id);
+    
+    List<PostListDto> selectWithReplyCount();
 }
