@@ -33,7 +33,7 @@ public class PostService {
 //    @Autowired private PostRepository postRepository // 1. 필드에 의한 의존성 주입
     
     private final PostRepository postRepository; // 2. (1) 생성자에 의한 의존성 주입
-    
+    private final ReplyRepository replyRepository;
     
     // 포스트 목록 페이지
     public List<PostListDto> read(){
@@ -56,10 +56,17 @@ public class PostService {
     // 포스트 상세보기 페이지
     public PostDetailDto read(long id) {
         log.info("read({})",id);
-        
+        // DB의 포스트 테이블에서 검색
         Post post =  postRepository.selectById(id);
+        // 검색한 내용을 dto 타입으로 변환.
+        PostDetailDto dto= PostDetailDto.fromEntity(post);
         
-        return PostDetailDto.fromEntity(post);
+        // DB REPLIES 테이블에서 댓글 개수 검색.
+        long count = replyRepository.selectReplyCountWithPostId(id);
+        dto.setReplycount(count);
+        
+        return dto;
+        
     }
     
     // 새 포스트 작성 페이지

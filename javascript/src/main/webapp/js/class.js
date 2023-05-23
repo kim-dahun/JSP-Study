@@ -13,7 +13,7 @@ document.addEventListener('DOMContentLoaded', function () {
             this.korean = korean;
             this.english = english;
             this.math = math;
-        }
+        } 
         
         // 메서드:
         // 클래스 생성자, 메서드 선언에서는 function 키워드를 사용하지 않음.

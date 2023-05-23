@@ -19,6 +19,7 @@ public class PostDetailDto {
     private String author;
     private Timestamp createdTime;
     private Timestamp modifiedTime;
+    private long replycount;
     
     public static PostDetailDto fromEntity(Post post) {
         PostDetailDto dto = PostDetailDto.builder().id(post.getId()).title(post.getTitle()).content(post.getContent()).author(post.getAuthor()).createdTime(Timestamp.valueOf(post.getCreated_time())).modifiedTime(Timestamp.valueOf(post.getModified_time())).build();     

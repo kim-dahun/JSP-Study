@@ -32,7 +32,7 @@
                     </ul>
                 </nav>
                 <main class="my-2">
-                    <div class="card">
+                    <section class="card">
                         <form class="card-body">
                             <div class="my-2">
                                 <label class="form-label for="id">번호</label>
@@ -69,12 +69,41 @@
                             </c:url>
                             <a href="${postModifyPage }"><button class="form-control btn btn-outline-primary">수정하기</button></a>
                         </div>
-                    </div>
+                    </section><!-- 포스트 상세보기 카드 끝 부분 -->
+                    <section class="my-2 card">
+                        <div class="card-header text-bold">
+                            <span>댓글</span>
+                            
+                            <span id="replyCount">${ post.replycount }</span>개 <!-- TODO 실제 댓글 갯수 -->
+                            <button class="btn" id="btnToggleReply" data-toggle="toggle-off">
+                            
+                            보이기
+                            
+                            </button>
+                        </div>
+                        <div class="card-body collapse" id="replyToggleDiv">
+                            <!-- 내 댓글 등록 -->
+                            <div class="row my-2">
+                                <label class="form-label" for="replyText">나의 댓글</label>
+                                <div class="col-10">
+                                    <textarea class="form-control" name="replyText" id="replyText" autofocus="autofocus" required></textarea>
+                                    <input class="d-none" id="writer" namse="writer" value="admin" /> <!-- TODO -->
+                                </div>
+                                <div class="col-2">
+                                    <button id="btnAddReply" class="form-control btn btn-outline-primary">등록</button>
+                                </div>
+                            </div>
+                            <!-- 댓글 목록 -->
+                            <div id="replies" class="row my-2">댓글 목록</div>
+                        </div>
+                    </section><!-- 댓글 등록, 댓글 리스트 카드 끝 부분 -->
+                    
                 </main>
                 
             </div>
             
-        
+        <script src="../static/js/reply.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
 	</body>
 </html>
