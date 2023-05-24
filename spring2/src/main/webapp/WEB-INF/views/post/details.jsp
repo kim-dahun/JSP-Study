@@ -76,8 +76,10 @@
                             
                             <span id="replyCount">${ post.replycount }</span>개 <!-- TODO 실제 댓글 갯수 -->
                             <button class="btn" id="btnToggleReply" data-toggle="toggle-off">
+                            <img id="toggleBtnIcon" 
+                            src="../static/assets/icons/toggle2-off.svg" 
+                            alt="toggle-off" width="32"/>
                             
-                            보이기
                             
                             </button>
                         </div>
@@ -87,14 +89,18 @@
                                 <label class="form-label" for="replyText">나의 댓글</label>
                                 <div class="col-10">
                                     <textarea class="form-control" name="replyText" id="replyText" autofocus="autofocus" required></textarea>
-                                    <input class="d-none" id="writer" namse="writer" value="admin" /> <!-- TODO -->
+                                    <input class="d-none" id="writer" name="writer" value="admin" /> <!-- TODO -->
                                 </div>
                                 <div class="col-2">
                                     <button id="btnAddReply" class="form-control btn btn-outline-primary">등록</button>
                                 </div>
                             </div>
                             <!-- 댓글 목록 -->
-                            <div id="replies" class="row my-2">댓글 목록</div>
+                            <div id="replies" class="row my-2">
+                                
+                            </div>
+                            
+                            
                         </div>
                     </section><!-- 댓글 등록, 댓글 리스트 카드 끝 부분 -->
                     

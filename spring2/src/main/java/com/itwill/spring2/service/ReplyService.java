@@ -1,8 +1,13 @@
 package com.itwill.spring2.service;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.springframework.stereotype.Service;
 
+import com.itwill.spring2.domain.Reply;
 import com.itwill.spring2.dto.ReplyCreateDto;
+import com.itwill.spring2.dto.ReplyReadDto;
 import com.itwill.spring2.repository.ReplyRepository;
 
 import lombok.RequiredArgsConstructor;
@@ -17,11 +22,27 @@ public class ReplyService {
 
     public int create(ReplyCreateDto dto) {
         // TODO Auto-generated method stub
-        log.info("create(dto={})",dto);
-        
+        log.info("create(dto={})", dto);
+
         return replyRepository.insert(dto.toEntity());
     }
-    
-    
-    
+
+    public List<ReplyReadDto> read(long id) {
+
+        log.info("read(id= {})", id);
+
+        List<Reply> list = replyRepository.selectByPostId(id);
+
+        return list.stream().map(ReplyReadDto::fromEntity).toList();
+
+    }
+
+    public int delete(long id) {
+
+        log.info("delete(id={})", id);
+
+        return replyRepository.delete(id);
+
+    }
+
 }
