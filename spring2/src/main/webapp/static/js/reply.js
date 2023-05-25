@@ -37,24 +37,95 @@ document.addEventListener('DOMContentLoaded',()=>{
       });
       
     };
+    
+    // 댓글 수정 모달 객체 색성 
+    const modal = new bootstrap.Modal('div#replyUpdateModal',{backdrop: false});
+    // TODO : 모달 Element
+    const modalInput = document.querySelector('input#modalReplyId');
+    const modalBtnUpdate = document.querySelector('button#modalBtnUpdate');
+    const modalTextarea = document.querySelector('textarea#modalReplyText');
     // 댓글 수정 버튼의 이벤트 리스너:
     const showUpdateModal = (e) => {
-       console.log(e.target);
+     /*  console.log(e.target);
        if(!confirm('정말 수정할까요?')){
           return;
        }
        const id = e.target.getAttribute('data-id');
        
        const requestUrl = `/spring2/api/reply/${id}`;
-       
        axios.modify(requestUrl)
-       .then(response =>{
+     */
+      
+      
+      const id = e.target.getAttribute('data-id');
+      const reqUrl = `/spring2/api/reply/${id}`;
+      
+      axios.get(reqUrl) // 서버로 Get 방식 Ajax 요청을 보냄.
+      
+      .then((response) => { // 성공 응답이 왔을 때 실행할 콜백
+      console.log(response);
+        // response 에 포함된 Data 객체에서 id, replyText 값을 찾음
+          const { id, replyText } = response.data;
+          
+          // id 와 replyText 를 모달의 input, textarea에 씀.
+        
+          modalInput.value = id;
+          modalTextarea.value = replyText;
+          
+          // 모달을 보여줌
+          modal.show();
+      })
+      .catch((error) => { // 실패 응답이 왔을 때 실행할 콜백
+          console.log(error)
+      });
+      
+      
+      
+      
+        
+     /*  .then(response =>{
            alert('댓글 업데이트 성공');
        })
        .catch(error=>{
            
        })
+     */  
     };
+    
+    const updateReply = () => {
+        
+      // 수정할 댓글 아이디
+      const id = modalInput.value;
+      
+      // 수정할 댓글 내용
+      const replyText = modalTextarea.value;
+      
+      // put 방식의 Ajax 요청 보냄.
+      const reqUrl = `/spring2/api/reply/${id}`;
+      
+      const data = {
+          replyText
+      };
+      axios.put(reqUrl,data)
+      
+      // Ajax 요청에 대한 성공/실패 콜백 등록.  
+        .then((response)=>{
+            console.log(response);
+            alert(`댓글 업데이트 성공(${response.data}`);
+            getRepliesWithPostId();
+            
+        })
+        .catch((error)=>{
+            console.log(error);
+        })
+        .finally(()=>{
+            modal.hide();
+        });
+    };
+    
+    // 모달에서 [수정 내용 저장] 버튼 이벤트 리스너 등록.
+    modalBtnUpdate.addEventListener('click', updateReply)
+    
     
     const makeReplyElements = (data) => {
         // 댓글 갯수 업데이트

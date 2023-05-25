@@ -128,4 +128,14 @@ public class PostController {
         
         return "redirect:/post/list?num=0";
     }
+    
+    
+    // 테스트용
+    @GetMapping("/chatroom")
+    public void chatroom() {
+        log.info("chatroom()");
+        
+        
+    }
+    
 }

@@ -132,6 +132,18 @@
             <artifactId>jackson-databind</artifactId>
             <version>2.15.1</version>
         </dependency>
+        <!-- Jakarta Web Socket -->
+        <dependency>
+            <groupId>jakarta.websocket</groupId>
+            <artifactId>jakarta.websocket-api</artifactId>
+            <version>2.1.0</version>
+        </dependency>
+        <!-- Spring Web Socket -->
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-websocket</artifactId>
+            <version>6.0.9</version>
+        </dependency>
     </dependencies>
     <!-- 프로젝트 빌드 플러그인 설정 -->
     <build>
